@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<h1>LESTE DES COLLABORATEURS</h1>
+
+{% for callaborateur in callaborateurs %}
+<div>
+    <div>
+
+
+        {% if request.user.is_authenticated %}
+        <div>
+            <a href="{% url 'edit' nom=nom.nom %}">Editer</a>
+            <a href="{% url 'delete'  nom=nom.nom %}">Supprimer</a>
+        </div>
+        {% endif %}
+
+        {{ collaborateur.nom}}
+        {{ collaborateur.prenom }}
+        {{ collaborateur.poste }}
+
+    </div>
+
+
+</div>
+
+{% endfor %}
+
+{% endblock content %}

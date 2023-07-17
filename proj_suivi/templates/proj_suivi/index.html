@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<h1>BIENVENU SUR NOTRE APP</h1>
+
+{% for tache in taches %}
+<div>
+    <div>
+
+
+        {% if request.user.is_authenticated %}
+        <div>
+            <a href="{% url 'edit' libelle=libelle.libelle %}">Editer</a>
+            <a href="{% url 'delete' libelle=libelle.libelle %}">Supprimer</a>
+        </div>
+        {% endif %}
+
+        {{ tache.libelle|safe }}
+        {{ tache.commentaire|safe }}
+    </div>
+
+
+</div>
+
+{% endfor %}
+
+{% endblock content %}

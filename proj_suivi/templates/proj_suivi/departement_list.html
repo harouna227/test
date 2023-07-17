@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<h1>LESTE DES departement</h1>
+
+{% for departement in departements %}
+<div>
+    <div>
+
+
+        {% if request.user.is_authenticated %}
+        <div>
+            <a href="{% url 'edit' departement=departement.libelle %}">Editer</a>
+            <a href="{% url 'delete'  departement=departement.libelle %}">Supprimer</a>
+        </div>
+        {% endif %}
+
+        {{ departement.libelle}}
+
+
+    </div>
+
+
+</div>
+
+{% endfor %}
+
+{% endblock content %}

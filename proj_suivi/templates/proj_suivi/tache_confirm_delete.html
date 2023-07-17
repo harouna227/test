@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Supprimer une tache</title>{% endblock %}
+
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>Ete-vous sur de vouloir supprimer {{ tache }}</p>
+        <input type="submit" value="Oui, supprimer">
+    </form>
+
+{% endblock %}
